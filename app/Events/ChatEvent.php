@@ -28,9 +28,12 @@ class ChatEvent implements ShouldBroadcast
     public function broadcastOn()
     {
         $channel = $this->user1."".$this->user2;
+        $name = str_split($this->user1."".$this->user2);
+        sort($name);
 
-        return [$channel];
-        // return new Channel($this->user1.$this->user2);
+        // return [$channel];
+        return [join("",$name)];
+        
     }
 
     public function broadcastAs()

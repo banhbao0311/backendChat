@@ -13,6 +13,10 @@ class ChatController extends Controller
         $user2 = $request->user2;
         $message = $request->message;
         event(new ChatEvent($user1,$user2,$message));
-        return 'true';
+        $name = str_split($user1."".$user2);
+        sort($name);
+        
+        
+        return join("",$name);
     }
 }
